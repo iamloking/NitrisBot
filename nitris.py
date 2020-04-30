@@ -17,7 +17,14 @@ class NitrisBot():
         self.driver.find_element_by_xpath('//*[@id="btnLogin"]').click()
         #Closing any news pop ups that come in.
         self.driver.find_element_by_xpath('//*[@id="modalevent"]/div/div/div[3]/button').click()
-        self.get_pdfs()
+        if (self.driver.find_element_by_xpath('//*[@id="wrapper"]/nav[1]/div[3]/div/a/i')):
+            self.get_pdfs()
+        
+        else:
+            
+            self.driver.find_element_by_xpath('//*[@id="messageShow"]/div/div/div[2]/button').click()
+            self.get_pdfs()
+        
 
 
     def get_pdfs(self):
